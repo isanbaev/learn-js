@@ -143,14 +143,14 @@ function camelize(str) {
   return arr_camel.join("");
 }
 
-function camelize(str) {
-  return str
-    .split("-")
-    .map((word, index) =>
-      index == 0 ? word : word[0].toUpperCase() + word.slice(1)
-    )
-    .join("");
-}
+// function camelize(str) {
+//   return str
+//     .split("-")
+//     .map((word, index) =>
+//       index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+//     )
+//     .join("");
+// }
 
 function filterRange(arr, a, b) {
   let filtered_arr = [];
@@ -166,9 +166,9 @@ function filterRange(arr, a, b) {
   return filtered_arr;
 }
 
-function filterRange(arr, a, b) {
-  return arr.filter(item => a <= item && item <= b);
-}
+// function filterRange(arr, a, b) {
+//   return arr.filter(item => a <= item && item <= b);
+// }
 
 function filterRangeInPlace(arr, a, b) {
   for (let i = arr.length - 1; i >= 0; i--) {
@@ -178,16 +178,16 @@ function filterRangeInPlace(arr, a, b) {
   }
 }
 
-function filterRangeInPlace(arr, a, b) {
-  for (let i = 0; i < arr.length; i++) {
-    let val = arr[i];
+// function filterRangeInPlace(arr, a, b) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let val = arr[i];
 
-    if (val < a || val > b) {
-      arr.splice(i, 1);
-      i--;
-    }
-  }
-}
+//     if (val < a || val > b) {
+//       arr.splice(i, 1);
+//       i--;
+//     }
+//   }
+// }
 
 function sortDescending(arr) {
   // or just simple {array.sort((a, b) => b - a);}
@@ -208,9 +208,9 @@ function copySorted(arr) {
   return sorted_arr;
 }
 
-function copySorted(arr) {
-  return arr.slice().sort();
-}
+// function copySorted(arr) {
+//   return arr.slice().sort();
+// }
 
 function CalculatorExpandable() {
   this.methods = {
