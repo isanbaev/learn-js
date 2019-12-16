@@ -212,9 +212,61 @@ function copySorted(arr) {
   return arr.slice().sort();
 }
 
-function Calculator2() {
-  
-  this.calculate = function(str){
-    return 0;
-  }
+function CalculatorExpandable() {
+  this.methods = {
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b
+  };
+
+  this.calculate = function(str) {
+    let arr_split = str.split(" ");
+    let a = +arr_split[0],
+      operator = arr_split[1],
+      b = +arr_split[2];
+
+    if (!this.methods[operator] || isNaN(a) || isNaN(b)) {
+      return NaN;
+    }
+
+    return this.methods[operator](a, b);
+  };
+
+  this.addMethod = function(name, func) {
+    this.methods[name] = func;
+  };
 }
+
+let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+let petya = { name: "Петя", surname: "Иванов", id: 2 };
+let masha = { name: "Маша", surname: "Петрова", id: 3 };
+
+let users = [vasya, petya, masha];
+
+let users_mapped = users.map(function(obj) {
+  let obj_mapped = {};
+
+  obj_mapped.fullname = obj.name + " " + obj.surname;
+  obj_mapped.id = obj.id;
+
+  return obj_mapped;
+});
+
+// let usersMapped = users.map(user => ({      // same as users_mapped
+//   fullName: `${user.name} ${user.surname}`,
+//   id: user.id
+// }));
+
+// console.log(users_mapped[0].id);
+// console.log(users_mapped[0].fullname);
+
+function sortByAge(users) {
+  users.sort(function(a, b) {
+    if (a.age > b.age) return 1;
+    if (a.age == b.age) return 0;
+    if (a.age < b.age) return -1;
+  });
+}
+
+// function sortByAge(arr) {
+//   arr.sort((a, b) => (a.age > b.age ? 1 : -1));
+// }

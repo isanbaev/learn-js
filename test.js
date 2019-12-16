@@ -332,7 +332,11 @@ describe("sortDescending", function() {
 
 describe("copySorted", function() {
   it("Return sorted array", function() {
-    assert.deepEqual(copySorted(["HTML", "JavaScript", "CSS"]), ["CSS", "HTML", "JavaScript"]);
+    assert.deepEqual(copySorted(["HTML", "JavaScript", "CSS"]), [
+      "CSS",
+      "HTML",
+      "JavaScript"
+    ]);
   });
 
   it("Leave an array as is", function() {
@@ -342,11 +346,11 @@ describe("copySorted", function() {
   });
 });
 
-describe("Calculator2", function() {
+describe("CalculatorExpandable", function() {
   let test_calculator;
 
   beforeEach(function() {
-    test_calculator = new Calculator2;
+    test_calculator = new CalculatorExpandable();
   });
 
   it("calculate(12 + 34) = 46", function() {
@@ -357,18 +361,34 @@ describe("Calculator2", function() {
     assert.equal(test_calculator.calculate("34 - 12"), 22);
   });
 
-  it("add multiplication: calculate(2 * 3) = 6", function() {
-    calculator.addMethod("*", (a, b) => a * b);
+  it("Add multiplication: calculate(2 * 3) = 6", function() {
+    test_calculator.addMethod("*", (a, b) => a * b);
     assert.equal(test_calculator.calculate("2 * 3"), 6);
   });
 
-  it("add division: calculate(6 / 3) = 2", function() {
-    calculator.addMethod("/", (a, b) => a / b);
+  it("Add division: calculate(6 / 3) = 2", function() {
+    test_calculator.addMethod("/", (a, b) => a / b);
     assert.equal(test_calculator.calculate("6 / 3"), 2);
   });
 
-  it("add power: calculate(2 ** 3) = 8", function() {
-    calculator.addMethod("**", (a, b) => a ** b);
+  it("Add power: calculate(2 ** 3) = 8", function() {
+    test_calculator.addMethod("**", (a, b) => a ** b);
     assert.equal(test_calculator.calculate("2 ** 3"), 8);
+  });
+});
+
+describe("sortByAge", function() {
+  it("Sort the array of objects by property 'age'", function() {
+    let test_arr = [
+      { name: "Вася", age: 25 },
+      { name: "Петя", age: 30 },
+      { name: "Маша", age: 28 }
+    ];
+
+    sortByAge(test_arr);
+
+    assert.equal(test_arr[0].name, "Вася");
+    assert.equal(test_arr[1].name, "Маша");
+    assert.equal(test_arr[2].name, "Петя");
   });
 });
