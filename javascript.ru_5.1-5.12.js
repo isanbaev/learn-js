@@ -259,7 +259,7 @@ let users_mapped = users.map(function(obj) {
 // console.log(users_mapped[0].id);
 // console.log(users_mapped[0].fullname);
 
-function sortByAge(users) {
+function sortByAge2(users) {
   users.sort(function(a, b) {
     if (a.age > b.age) return 1;
     if (a.age == b.age) return 0;
