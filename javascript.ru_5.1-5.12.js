@@ -152,7 +152,6 @@ function camelize(str) {
 //     .join("");
 // }
 
-
 function filterRange(arr, a, b) {
   let filtered_arr = [];
   let j = 0;
