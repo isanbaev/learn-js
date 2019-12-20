@@ -259,7 +259,7 @@ let users_mapped = users.map(function(obj) {
 // console.log(users_mapped[0].id);
 // console.log(users_mapped[0].fullname);
 
-function sortByAge2(users) {
+function sortByAge(users) {
   users.sort(function(a, b) {
     if (a.age > b.age) return 1;
     if (a.age == b.age) return 0;
@@ -269,4 +269,36 @@ function sortByAge2(users) {
 
 // function sortByAge(arr) {
 //   arr.sort((a, b) => (a.age > b.age ? 1 : -1));
+// }
+
+function shuffle(array) {
+  array.sort(function() {
+    return Math.random() - 0.5;
+  });
+}
+
+// function shuffle(array) {
+//   for (let i = array.length - 1; i > 0; i--) {
+//     let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+
+//     // поменять элементы местами
+//     // мы используем для этого синтаксис "деструктурирующее присваивание"
+//     // то же самое можно записать как:
+//     // let t = array[i]; array[i] = array[j]; array[j] = t
+//     [array[i], array[j]] = [array[j], array[i]];
+//   }
+// }
+
+function getAverageAge(users) {
+  let sum = 0;
+
+  for (user of users) {
+    sum += user.age;
+  }
+
+  return sum / users.length;
+}
+
+// function getAverageAge(users) {
+//   return users.reduce((prev, user) => prev + user.age, 0) / users.length;
 // }

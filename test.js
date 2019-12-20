@@ -382,7 +382,7 @@ describe("sortByAge", function() {
     let test_arr = [
       { name: "Вася", age: 25 },
       { name: "Петя", age: 30 },
-      { name: "Маша", age: 28 }
+      { name: "Маша", age: 29 }
     ];
 
     sortByAge(test_arr);
@@ -390,5 +390,17 @@ describe("sortByAge", function() {
     assert.equal(test_arr[0].name, "Вася");
     assert.equal(test_arr[1].name, "Маша");
     assert.equal(test_arr[2].name, "Петя");
+  });
+});
+
+describe("getAverageAge", function() {
+  it("Returns average 'age' of users", function() {
+    let test_arr = [
+      { name: "Вася", age: 25 },
+      { name: "Петя", age: 30 },
+      { name: "Маша", age: 29 }
+    ];
+
+    assert.equal(getAverageAge(test_arr), 28);
   });
 });
