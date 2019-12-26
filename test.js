@@ -404,3 +404,21 @@ describe("getAverageAge", function() {
     assert.equal(getAverageAge(test_arr), 28);
   });
 });
+
+describe("unique", function() {
+  it("Return unique", function() {
+    let strings = [
+      "кришна",
+      "кришна",
+      "харе",
+      "харе",
+      "харе",
+      "харе",
+      "кришна",
+      "кришна",
+      ":-O"
+    ];
+
+    assert.deepEqual(unique(strings), ["кришна", "харе", ":-O"]);
+  });
+});

@@ -1,12 +1,15 @@
 function checkAge(age) {
   return age > 18 ? true : confirm("Parental permission?");
 }
+
 // function checkAge(age) {
 //   return age > 18 || confirm("Родители разрешили?");
 // }
+
 function min(a, b) {
   return a < b ? a : b;
 }
+
 function pow(x, n) {
   if (n < 0) return NaN;
   if (Math.round(n) != n) return NaN;
@@ -18,10 +21,12 @@ function pow(x, n) {
 
   return result;
 }
+
 function ask(question, yes, no) {
   if (confirm(question)) yes();
   else no();
 }
+
 // ask(
 //   "Did you agree?",
 //   () => alert("You are agree."),

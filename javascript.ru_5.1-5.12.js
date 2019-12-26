@@ -236,28 +236,30 @@ function CalculatorExpandable() {
   };
 }
 
-let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
-let petya = { name: "Петя", surname: "Иванов", id: 2 };
-let masha = { name: "Маша", surname: "Петрова", id: 3 };
+{
+  let vasya = { name: "Вася", surname: "Пупкин", id: 1 };
+  let petya = { name: "Петя", surname: "Иванов", id: 2 };
+  let masha = { name: "Маша", surname: "Петрова", id: 3 };
 
-let users = [vasya, petya, masha];
+  let users = [vasya, petya, masha];
 
-let users_mapped = users.map(function(obj) {
-  let obj_mapped = {};
+  let users_mapped = users.map(function(obj) {
+    let obj_mapped = {};
 
-  obj_mapped.fullname = obj.name + " " + obj.surname;
-  obj_mapped.id = obj.id;
+    obj_mapped.fullname = obj.name + " " + obj.surname;
+    obj_mapped.id = obj.id;
 
-  return obj_mapped;
-});
+    return obj_mapped;
+  });
 
-// let usersMapped = users.map(user => ({      // same as users_mapped
-//   fullName: `${user.name} ${user.surname}`,
-//   id: user.id
-// }));
+  // let users_mapped = users.map(user => ({      // same as users_mapped
+  //   fullName: `${user.name} ${user.surname}`,
+  //   id: user.id
+  // }));
 
-// console.log(users_mapped[0].id);
-// console.log(users_mapped[0].fullname);
+  // console.log(users_mapped[0].id);
+  // console.log(users_mapped[0].fullname);
+}
 
 function sortByAge(users) {
   users.sort(function(a, b) {
@@ -302,3 +304,13 @@ function getAverageAge(users) {
 // function getAverageAge(users) {
 //   return users.reduce((prev, user) => prev + user.age, 0) / users.length;
 // }
+
+function unique(arr) { // долгое решение
+  let uniq_arr = [];
+
+  arr.forEach(item => {
+    if (!uniq_arr.includes(item)) uniq_arr.push(item);
+  });
+
+  return uniq_arr;
+}
