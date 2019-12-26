@@ -406,19 +406,25 @@ describe("getAverageAge", function() {
 });
 
 describe("unique", function() {
-  it("Return unique", function() {
+  it("Returns array with unique elements", function() {
     let strings = [
-      "кришна",
-      "кришна",
-      "харе",
-      "харе",
-      "харе",
-      "харе",
-      "кришна",
-      "кришна",
+      "Hare",
+      "Krishna",
+      "Hare",
+      "Krishna",
+      "Krishna",
+      "Krishna",
+      "Hare",
+      "Hare",
       ":-O"
     ];
 
-    assert.deepEqual(unique(strings), ["кришна", "харе", ":-O"]);
+    assert.deepEqual(unique(strings), ["Hare", "Krishna", ":-O"]);
+  });
+
+  it("Does not change the source array", function() {
+    let strings = ["Krishna", "Krishna", "Hare", "Hare"];
+    unique(strings);
+    assert.deepEqual(strings, ["Krishna", "Krishna", "Hare", "Hare"]);
   });
 });
