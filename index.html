@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<script src="https://ru.js.cx/test/libs.js"></script>
+<!--script-- src="https://ru.js.cx/test/libs.js"></!--script-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Learn JS</title>
+
+    <!-- добавим стили mocha для отображения результатов -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/7.0.1/mocha.css"
+    />
+    <!-- добавляем сам фреймворк mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/7.0.1/mocha.js"></script>
+    <script>
+      // включаем режим тестирования в стиле BDD
+      mocha.setup("bdd");
+    </script>
+    <!-- добавим chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.js"></script>
+    <script>
+      // chai предоставляет большое количество функций. Объявим assert глобально
+      let assert = chai.assert;
+    </script>
+    <!-- добавляем mock-библиотека для JavaScript Sinon-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/8.1.1/sinon.js"></script>
+    <script>
+      // Объявим глобально
+      let stub = sinon.stub();
+    </script>
   </head>
 
   <body>
@@ -36,5 +60,12 @@
     <script src="javascript.ru_4.1-4.6.js"></script>
     <script src="javascript.ru_5.1-5.12.js"></script>
     <script src="test.js"></script>
+
+    <div id="mocha"></div>
+
+    <!-- запускаем тесты! -->
+    <script>
+      mocha.run();
+    </script>
   </body>
 </html>
