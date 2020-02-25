@@ -332,11 +332,7 @@ describe("sortDescending", function() {
 
 describe("copySorted", function() {
   it("Return sorted array", function() {
-    assert.deepEqual(copySorted(["HTML", "JavaScript", "CSS"]), [
-      "CSS",
-      "HTML",
-      "JavaScript"
-    ]);
+    assert.deepEqual(copySorted(["HTML", "JavaScript", "CSS"]), ["CSS", "HTML", "JavaScript"]);
   });
 
   it("Leave an array as is", function() {
@@ -426,5 +422,55 @@ describe("unique", function() {
     let strings = ["Krishna", "Krishna", "Hare", "Hare"];
     unique(strings);
     assert.deepEqual(strings, ["Krishna", "Krishna", "Hare", "Hare"]);
+  });
+});
+
+describe("uniqueSet", function() {
+  it("Returns array with unique elements", function() {
+    let strings = [
+      "Hare",
+      "Krishna",
+      "Hare",
+      "Krishna",
+      "Krishna",
+      "Krishna",
+      "Hare",
+      "Hare",
+      ":-O"
+    ];
+
+    assert.deepEqual(uniqueSet(strings), ["Hare", "Krishna", ":-O"]);
+  });
+
+  it("Does not change the source array", function() {
+    let strings = ["Krishna", "Krishna", "Hare", "Hare"];
+    uniqueSet(strings);
+    assert.deepEqual(strings, ["Krishna", "Krishna", "Hare", "Hare"]);
+  });
+});
+
+describe("aclean", function() {
+  it("returns exactly 1 word from each anagram set", function() {
+    let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+    let result = aclean(arr);
+    assert.equal(result.length, 3);
+  });
+
+  it("is case-insensitive", function() {
+    let arr = ["era", "EAR"];
+    assert.equal(aclean(arr).length, 1);
+  });
+
+  it("Returns array with filtred anagrams", function() {
+    let strings = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+    assert.deepEqual(aclean(strings), ['PAN', 'hectares', 'era']);
+  });
+
+  it("Does not change the source array", function() {
+    let strings = ["nap", "teachers", "cheaters", "PAN"];
+    uniqueSet(strings);
+    assert.deepEqual(strings, ["nap", "teachers", "cheaters", "PAN"]);
   });
 });

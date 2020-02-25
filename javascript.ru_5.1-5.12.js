@@ -35,8 +35,7 @@ function ucFirst(str) {
 }
 
 function checkSpam(str) {
-  if (str.toLowerCase().includes("viagra") || str.toLowerCase().includes("xxx"))
-    return true;
+  if (str.toLowerCase().includes("viagra") || str.toLowerCase().includes("xxx")) return true;
   return false;
 }
 
@@ -305,7 +304,8 @@ function getAverageAge(users) {
 //   return users.reduce((prev, user) => prev + user.age, 0) / users.length;
 // }
 
-function unique(arr) { // долгое решение
+function unique(arr) {
+  // долгое решение
   let uniq_arr = [];
 
   arr.forEach(item => {
@@ -313,4 +313,34 @@ function unique(arr) { // долгое решение
   });
 
   return uniq_arr;
+}
+
+function uniqueSet(arr) {
+  let set = new Set(arr);
+  let uniq_arr = [];
+
+  set.forEach((value, again_value, set) => uniq_arr.push(value));
+
+  return uniq_arr;
+}
+
+// function uniqueSet(arr) {
+//   return Array.from(new Set(arr));
+// }
+
+function aclean(arr) {
+  // ????
+  let map = new Map();
+
+  for (let word of arr) {
+    let sorted = word
+      .toLowerCase()
+      .split("")
+      .sort()
+      .join("");
+
+    map.set(sorted, word);
+  }
+
+  return Array.from(map.values());
 }
